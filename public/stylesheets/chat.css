@@ -1,0 +1,112 @@
+main {
+  display: grid;
+  grid-template-columns: 38% 57%;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: darksalmon;
+}
+.friendlist {
+  height: 400px;
+  overflow: auto;
+  background-color: rgb(56, 56, 56);
+}
+
+.friendlist ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.friendlist ul > li {
+  color: aqua;
+  margin: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 1px solid white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.chatwindow {
+  height: 400px;
+  background-color: rgb(56, 56, 56);
+  position: relative;
+  z-index: 0;
+}
+
+.friendlist > h2,
+.chatwindow > h2 {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  box-shadow: 2px 0px 15px 0px whitesmoke;
+}
+
+.chatwindow > img {
+  height: 300px;
+  display: block;
+  margin: auto auto;
+}
+
+.message {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  bottom: 10px;
+  width: 100%;
+}
+
+.message input {
+  font-size: 1.4rem;
+  padding: 0.2em 0.5em;
+  border: none;
+  outline: none;
+  width: 70%;
+}
+
+.message button {
+  font-size: 1.4rem;
+  font-family: "Times New Roman", Times, serif;
+  padding: 0.1em 0.3em;
+  width: 20%;
+  background-color: orangered;
+  color: white;
+  transition: all 0.4s ease-in-out;
+}
+
+.message button:hover {
+  background-color: rgb(255, 134, 86);
+}
+
+.rchat,
+.schat {
+  padding: 5px;
+  font-size: 1.2rem;
+  margin: 10px;
+  max-width: 80%;
+}
+
+.schat {
+  float: right;
+  clear: both;
+  background-color: aquamarine;
+  border-radius: 3px;
+}
+
+.rchat {
+  float: left;
+  clear: both;
+  background-color: whitesmoke;
+  border-radius: 3px;
+}
+#searchbut {
+  font-size: 22px;
+  padding: 7px;
+  background-color: gold;
+  color: black;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+#searchbut:hover {
+  background-color: rgba(255, 217, 0, 0.8);
+}

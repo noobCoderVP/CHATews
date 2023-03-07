@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/index.css" />
+    <link rel="stylesheet" href="stylesheets/login.css" />
+    <title>Email</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs') %> 
+    <% if(!logged) { %>
+    <p class="invalid">Please register/ login</p>
+    <% } %>
+    <main>
+      <form action="/help" method="POST">
+        <fieldset>
+          <legend>Contact</legend>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autofocus />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="query"> Enter your query: </label>
+          <textarea
+            name="query"
+            id="query"
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

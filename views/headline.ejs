@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap"
+      rel="stylesheet"
+    />
+    <title>Headlines</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs') %>
+    <main>
+      <% for(i of content){ %> <% if(!i.urlToImage) continue; %> <% const date =
+      new Date(i.publishedAt); %>
+      <div class="article">
+        <div class="image">
+          <img src="<%= i.urlToImage %> " alt="" width="80%" height="80%" />
+        </div>
+        <div class="desc">
+          <div class="date">
+            <%= date.getDate() %>/<%= date.getMonth()+1 %>/<%=
+            date.getFullYear() %>
+          </div>
+          <h2><%= i.title %></h2>
+          <p><%= i.description %></p>
+          <a href="<%=i.url%> ">Read more...</a>
+          <% if(i.source.name) {%>
+          <div class="source">Source: <%= i.source.name %></div>
+          <% } %>
+        </div>
+      </div>
+      <% } %>
+    </main>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="stylesheets/index.css" />
+        <link rel="stylesheet" href="stylesheets/chat.css" />
+        <script src="/socket.io/socket.io.js"></script>
+        <script defer src="scripts/chat.js"></script>
+        <title>chat</title>
+    </head>
+    <body>
+        <%- include('partials/header.ejs') %> <% if(!logged) { %>
+        <p class="invalid">Please register/ login</p>
+        <% } %>
+        <main>
+            <input
+                type="search"
+                list="users"
+                placeholder="Search username"
+                class="search"
+                id="searchfriend" />
+            <datalist id="users">
+                <% for ( let i of users){%>
+                <option value="<%=i%>"></option>
+                <% } %>
+            </datalist>
+
+            <button id="searchbut">add friend</button>
+            <div class="friendlist">
+                <h2>userlist</h2>
+                <div class="list">
+                    <ul>
+                        <% for ( let i of users){%>
+                        <li><%=i%></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            <div class="chatwindow">
+                <h2>public chat</h2>
+                <div id="messages"></div>
+                <div class="message">
+                    <input
+                        type="text"
+                        name="message"
+                        placeholder="send message"
+                        id="msg" />
+                    <button id="send">send</button>
+                </div>
+                <!-- <img src="images/chat.png" alt="" /> -->
+            </div>
+            <p id="hid"><%= username %></p>
+        </main>
+        <%- include('partials/footer.ejs') %>
+    </body>
+</html>

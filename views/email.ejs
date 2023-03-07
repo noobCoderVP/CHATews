@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/index.css" />
+    <link rel="stylesheet" href="stylesheets/login.css" />
+    <title>Email</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs') %> <% if(!logged) { %>
+    <p class="invalid">Please register/ login</p>
+    <% } %> <% if(invalid) { %>
+    <p class="invalid">invalid credentials</p>
+    <% } %>
+    <main>
+      <form action="/email" method="post">
+        <label for="username">Username<span>*</span></label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter unique username"
+          autofocus
+          required
+        />
+        <label for="password">Password<span>*</span></label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          placeholder="Enter password"
+          minlength="8"
+          required
+        />
+        <label for="interval">Interval<span>*</span></label>
+        <select name="interval" id="interval">
+          <option value="day">day</option>
+          <option value="week">weekly(all days)</option>
+          <option value="weekend">weekend</option>
+          <option value="month">month</option>
+          <option value="quarterly">quarter</option>
+        </select>
+        <label for="keywords">Keywords<span>*</span></label>
+        <textarea
+          name="keywords"
+          id="key"
+          cols="30"
+          rows="2"
+          placeholder="keywords seperated by comma"
+        ></textarea>
+        <label for="time">Time<span>*</span></label>
+        <input type="time" name="time" id="time" />
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylesheets/index.css" />
+    <link rel="stylesheet" href="../stylesheets/login.css" />
+    <title>title</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs') %>
+    <main>
+      <form action="/register" method="post">
+        <label for="name">Full Name<span>*</span></label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter your name"
+          autofocus
+          required
+        />
+        <label for="username">Username<span>*</span></label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter unique username"
+          required
+        />
+        <label for="age">Age<span>*</span></label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          placeholder="Enter your age"
+          max="100"
+          min="1"
+          required
+        />
+        <label for="email">Email<span>*</span></label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+        <label for="password">Password<span>*</span></label>
+        <input
+          type="text"
+          name="password"
+          id="password"
+          placeholder="Enter password"
+          minlength="8"
+        />
+        <label for="pass">Confirm Password<span>*</span></label>
+        <input
+          type="text"
+          name="pass"
+          id="pass"
+          placeholder="Re-enter your name"
+          minlength="8"
+        />
+        <label for="profession">Profession</label>
+        <select name="profession" id="profession" required>
+          <option value="student">Student</option>
+          <option value="engineer">Engineer</option>
+          <option value="lawyer">Lawyer</option>
+          <option value="politician">Politician</option>
+          <option value="scientist">Scientist</option>
+          <option value="doctor">Doctor</option>
+          <option value="police">Police Officer</option>
+          <option value="accountant">Accountant</option>
+          <option value="artist">Artist</option>
+          <option value="others">Others</option>
+        </select>
+        <button type="submit">Register</button>
+      </form>
+    </main>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>
